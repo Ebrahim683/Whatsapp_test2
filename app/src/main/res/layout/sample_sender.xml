@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/bg_sender"
+        android:maxWidth="310dp"
+        android:maxHeight="400dp"
+        android:minWidth="30dp">
+
+        <TextView
+            android:id="@+id/senderSMS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="270dp"
+            android:minWidth="50dp"
+            android:inputType="textLongMessage|textMultiLine"
+            android:layout_margin="8dp"
+            android:text="Hello World"
+            app:layout_constraintBottom_toTopOf="@+id/senderTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/senderTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12.00"
+            android:layout_margin="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+             />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            app:layout_constraintGuide_end="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

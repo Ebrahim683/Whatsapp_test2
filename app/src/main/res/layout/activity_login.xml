@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#B6B1B1"
+    tools:context=".Activity.LoginActivity">
+
+
+    <EditText
+        android:id="@+id/emailETL"
+        android:hint="Enter Email"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="60dp"
+        android:inputType="textEmailAddress"
+        android:background="@color/white"
+        android:padding="9dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/passwordETL"
+        android:hint="Enter Password"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:padding="9dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signInID"
+        android:layout_width="wrap_content"
+        android:text="Sign In"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/lgINL"
+        android:text="Sign Up"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/googleID"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/google"
+        android:scaleType="centerCrop"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+
+</LinearLayout>
