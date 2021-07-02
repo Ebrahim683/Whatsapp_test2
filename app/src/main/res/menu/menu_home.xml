@@ -8,4 +8,7 @@
     <item android:title="Setting"
         android:id="@+id/setting"/>
 
+    <item android:title="ChatRoom"
+        android:id="@+id/chatroom"/>
+
 </menu>

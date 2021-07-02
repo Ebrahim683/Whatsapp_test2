@@ -25,6 +25,9 @@ public class ChatAdapter extends RecyclerView.Adapter{
     int senderView = 1;
     int receiverView = 2;
 
+    public ChatAdapter() {
+
+    }
     public ChatAdapter(ArrayList<SmsModel> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;

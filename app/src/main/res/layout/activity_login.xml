@@ -57,6 +57,7 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/google"
         android:scaleType="centerCrop"
+        android:visibility="gone"
         android:layout_width="80dp"
         android:layout_height="80dp"/>
 

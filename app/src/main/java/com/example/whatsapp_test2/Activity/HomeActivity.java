@@ -64,6 +64,10 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(this, "S", Toast.LENGTH_SHORT).show();
         }
 
+        if (id == R.id.chatroom){
+            startActivity(new Intent(this,GroupChatActivity.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

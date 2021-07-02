@@ -127,6 +127,11 @@ public class ChatDetailsActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public void onBackPressed() {
+//        startActivity(new Intent(ChatDetailsActivity.this,HomeActivity.class));
+        finish();
     }
 }

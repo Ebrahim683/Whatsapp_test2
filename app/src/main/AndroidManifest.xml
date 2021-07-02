@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Whatsapp_test2">
-        <activity android:name=".Activity.ChatDetailsActivity"/>
-        <activity android:name=".Activity.HomeActivity"/>
+        <activity android:name=".Activity.GroupChatActivity">
+
+        </activity>
+        <activity android:name=".Activity.ChatDetailsActivity" />
+        <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.MainActivity"/>
+        <activity android:name=".Activity.MainActivity" />
     </application>
 
 </manifest>

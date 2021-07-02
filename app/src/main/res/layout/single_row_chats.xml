@@ -37,7 +37,6 @@
         android:layout_toEndOf="@id/sampleChatImage"
         android:layout_below="@id/sampleUserNameChats"
         android:layout_marginStart="12dp"
-        android:text="LastMessage"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
         android:textColor="@color/black"

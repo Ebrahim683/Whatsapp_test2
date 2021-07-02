@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsapp_test2.Activity.ChatDetailsActivity;
+import com.example.whatsapp_test2.Activity.HomeActivity;
 import com.example.whatsapp_test2.Models.UsersModel;
 import com.example.whatsapp_test2.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -48,22 +55,47 @@ public class UserChatAdapter extends RecyclerView.Adapter<UserChatAdapter.ViewHo
         UsersModel usersModel = arrayList.get(position);
         Picasso.get().load(usersModel.getPic()).placeholder(R.drawable.avatar).into(holder.sampleChatImage);
         holder.sampleUserNameChats.setText(usersModel.getName());
-//        holder.sampleLastMessageChats.setText(usersModel.getLastMessage());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ChatDetailsActivity.class);
-                intent.putExtra("userID",usersModel.getUserID());
-                intent.putExtra("userPic",usersModel.getPic());
-                intent.putExtra("userName",usersModel.getName());
-                options = ActivityOptions.makeSceneTransitionAnimation((Activity) context,
-                        Pair.create(holder.sampleChatImage,"profPic"),
-                        Pair.create(holder.sampleUserNameChats,"username")
-                );
-                context.startActivity(intent,options.toBundle());
-            }
-        });
+        FirebaseDatabase.getInstance().getReference().child("chat")
+                .child(FirebaseAuth.getInstance().getUid()+usersModel.getUserID())
+                .orderByChild("time")
+                .limitToLast(1)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        if (snapshot.hasChildren()){
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                    holder.sampleLastMessageChats.setText(dataSnapshot.child("sms")
+                                            .getValue().toString());
+                            }
+//                            notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+
+       try {
+           holder.itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   Intent intent = new Intent(context, ChatDetailsActivity.class);
+                   intent.putExtra("userID", usersModel.getUserID());
+                   intent.putExtra("userPic", usersModel.getPic());
+                   intent.putExtra("userName", usersModel.getName());
+                   options = ActivityOptions.makeSceneTransitionAnimation((Activity) context,
+                           Pair.create(holder.sampleChatImage, "profPic"),
+                           Pair.create(holder.sampleUserNameChats, "username")
+                   );
+                   context.startActivity(intent, options.toBundle());
+               }
+           });
+       }catch (Exception e){
+           Log.e("error3","Error = "+e);
+       }
     }
 
     @Override
