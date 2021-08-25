@@ -31,7 +31,6 @@ public class ChatFragment extends Fragment {
     ArrayList<UsersModel> arrayList;
     FirebaseDatabase firebaseDatabase;
     RecyclerView recyclerView;
-    ActivityOptions options;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +47,7 @@ public class ChatFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase.getReference().child("Users").addValueEventListener(new ValueEventListener() {

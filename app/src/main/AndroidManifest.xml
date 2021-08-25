@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Whatsapp_test2">
-        <activity android:name=".Activity.GroupChatActivity">
-
-        </activity>
+        <activity android:name=".Activity.SettingActivity"></activity>
+        <activity android:name=".Activity.GroupChatActivity"></activity>
         <activity android:name=".Activity.ChatDetailsActivity" />
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.LoginActivity">

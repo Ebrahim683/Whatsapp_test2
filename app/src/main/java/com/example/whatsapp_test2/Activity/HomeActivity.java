@@ -61,12 +61,14 @@ public class HomeActivity extends AppCompatActivity {
             HomeActivity.this.finish();
         }
         if (id == R.id.setting){
-            Toast.makeText(this, "S", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this,SettingActivity.class);
+//            intent.putExtra("name",);
+            startActivity(intent);
         }
 
-        if (id == R.id.chatroom){
-            startActivity(new Intent(this,GroupChatActivity.class));
-        }
+//        if (id == R.id.chatroom){
+//            startActivity(new Intent(this,GroupChatActivity.class));
+//        }
 
         return super.onOptionsItemSelected(item);
     }

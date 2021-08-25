@@ -60,13 +60,13 @@ public class UserChatAdapter extends RecyclerView.Adapter<UserChatAdapter.ViewHo
                 .child(FirebaseAuth.getInstance().getUid()+usersModel.getUserID())
                 .orderByChild("time")
                 .limitToLast(1)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                         if (snapshot.hasChildren()){
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                                    holder.sampleLastMessageChats.setText(dataSnapshot.child("sms")
-                                            .getValue().toString());
+                                holder.sampleLastMessageChats.setText(dataSnapshot.child("sms")
+                                        .getValue().toString());
                             }
 //                            notifyDataSetChanged();
                         }
@@ -78,7 +78,6 @@ public class UserChatAdapter extends RecyclerView.Adapter<UserChatAdapter.ViewHo
                     }
                 });
 
-       try {
            holder.itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
@@ -93,9 +92,6 @@ public class UserChatAdapter extends RecyclerView.Adapter<UserChatAdapter.ViewHo
                    context.startActivity(intent, options.toBundle());
                }
            });
-       }catch (Exception e){
-           Log.e("error3","Error = "+e);
-       }
     }
 
     @Override

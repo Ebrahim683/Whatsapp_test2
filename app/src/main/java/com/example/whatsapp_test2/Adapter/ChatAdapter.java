@@ -1,6 +1,8 @@
 package com.example.whatsapp_test2.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsapp_test2.Models.SmsModel;
 import com.example.whatsapp_test2.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,12 +29,13 @@ public class ChatAdapter extends RecyclerView.Adapter{
     int receiverView = 2;
 
     public ChatAdapter() {
-
     }
+
     public ChatAdapter(ArrayList<SmsModel> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
+
 
     @NonNull
     @NotNull
@@ -50,12 +54,13 @@ public class ChatAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         SmsModel smsModel = arrayList.get(position);
+
         if (holder.getClass() == senderViewHolder.class){
             ((senderViewHolder)holder).senderSMS.setText(smsModel.getSms());
-//            ((senderViewHolder)holder).senderTime.setText(String.valueOf(smsModel.getTime()));
+            ((senderViewHolder)holder).senderTime.setText(String.valueOf(smsModel.getTime()));
         }else {
             ((receiverViewHolder)holder).sms_receiver.setText(smsModel.getSms());
-//            ((receiverViewHolder)holder).time_receiver.setText(smsModel.getTime());
+            ((receiverViewHolder)holder).time_receiver.setText(String.valueOf(smsModel.getTime()));
         }
     }
 

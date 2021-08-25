@@ -7,6 +7,10 @@ public class UsersModel {
     public UsersModel() {
     }
 
+    public UsersModel(String pic) {
+        this.pic = pic;
+    }
+
     public UsersModel(String pic, String name, String email, String password, String userID, String lastMessage) {
         this.pic = pic;
         this.name = name;
@@ -16,11 +20,20 @@ public class UsersModel {
         this.lastMessage = lastMessage;
     }
 
+
     public UsersModel(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
+
+//    public UsersModel(String name, String email, String password,String pic) {
+//        this.name = name;
+//        this.email = email;
+//        this.password = password;
+//        this.pic = pic;
+//    }
+
 
     public String getPic() {
         return pic;
